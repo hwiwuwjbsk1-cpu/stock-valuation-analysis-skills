@@ -1,8 +1,8 @@
 # 股票估值分析 Skills
 
-让 AI 大模型直接调用阿里云百炼工作流的 Agent Skill，对 A 股个股进行多维度估值分析。基于**相对估值、历史估值分位、成长性匹配度验证、估值合理性综合判断**四层维度输出结构化估值分析报告。
+让 AI 大模型直接调用专业金融数据的 Agent Skill，对 A 股个股进行多维度估值分析。基于**相对估值、历史估值分位、成长性匹配度验证、估值合理性综合判断**四层维度输出结构化估值分析报告。
 
-数据由 [今日投资数据市场](https://data-api.investoday.net) 提供，通过阿里云百炼工作流进行数据收集与分析。
+数据由 [今日投资数据市场](https://data-api.investoday.net) 提供，20 年金融数据积累，腾讯投资、毕马威 KPMG 金融科技 50 强认证。
 
 ---
 
@@ -10,8 +10,8 @@
 
 ### 1. 获取 API Key
 
-**DashScope API Key**（阿里云百炼）：
-前往 [阿里云百炼控制台](https://dashscope.console.aliyun.com/) 创建 API Key。
+**InvestToday API Key**：
+前往 [今日投资数据平台](https://data-api.investoday.net/login) 注册并创建 API Key。
 
 ### 2. 安装依赖
 
@@ -23,8 +23,7 @@ pip install -r requirements.txt
 
 ```bash
 cp .env.example .env
-# 编辑 .env，填入：
-# DASHSCOPE_API_KEY=your_dashscope_key_here
+# 编辑 .env，填入：INVESTODAY_API_KEY=your_key_here
 ```
 
 ### 4. 安装 Skill
@@ -102,13 +101,14 @@ cp -r skills/ ~/.openclaw/workspace/skills/stock-valuation-analysis/
 
 ---
 
-## 工作流调用
+## MCP 工具调用
 
-本 Skill 调用以下阿里云百炼工作流：
+本 Skill 调用以下 InvestToday MCP 工具：
 
-| 工作流名称 | 用途 | 入参 | 出参 |
-|------------|------|------|------|
-| `股票估值数据` | 估值数据收集与分析 | `stockCode` | `result`（结构化估值数据） |
+| 工具名 | 用途 | 调用次数 |
+|--------|------|----------|
+| `get_stock_finance_valuation` | 股票估值指标 | 1 |
+| `get_stock_finance_valuation_hist` | 股票估值历史指标 | 1 |
 
 ---
 
@@ -144,8 +144,8 @@ cp -r skills/ ~/.openclaw/workspace/skills/stock-valuation-analysis/
 
 ## 相关链接
 
-- [阿里云百炼](https://help.aliyun.com/zh/model-studio/)
 - [今日投资数据市场](https://data-api.investoday.net/hub?url=%2Fapidocs%2Fai-native-financial-data)
+- [常见问题](https://data-api.investoday.net/hub?url=%2Fapidocs%2Ffaq)
 
 ---
 
