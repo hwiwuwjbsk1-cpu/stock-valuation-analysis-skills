@@ -1,0 +1,45 @@
+{
+  "name": "stock-valuation-analysis",
+  "displayName": "股票估值分析",
+  "version": "1.0.0",
+  "description": "股票估值分析智能体 - 基于阿里云百炼工作流输出结构化估值分析报告",
+  "author": "InvestToday",
+  "license": "MIT",
+  "keywords": [
+    "stock",
+    "valuation",
+    "analysis",
+    "investoday",
+    "dashscope",
+    "A 股",
+    "估值分析",
+    "PE",
+    "PB",
+    "PEG"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hwiwuwjbsk1-cpu/stock-sentiment-analysis-skills.git"
+  },
+  "homepage": "https://github.com/hwiwuwjbsk1-cpu/stock-sentiment-analysis-skills#readme",
+  "bugs": {
+    "url": "https://github.com/hwiwuwjbsk1-cpu/stock-sentiment-analysis-skills/issues"
+  },
+  "dependencies": {
+    "requests": ">=2.28.0"
+  },
+  "env": {
+    "DASHSCOPE_API_KEY": {
+      "required": true,
+      "description": "阿里云百炼 DashScope API Key",
+      "docs": "https://dashscope.console.aliyun.com/"
+    }
+  },
+  "scripts": {
+    "call_api": "scripts/call_api.py"
+  },
+  "engines": {
+    "python": ">=3.8",
+    "node": ">=16"
+  }
+}
